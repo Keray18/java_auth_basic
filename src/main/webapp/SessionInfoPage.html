@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Session Information</h1>
+  <button onclick="fetchSessionInfo()">Get Session Info</button>
+  <div id="sessionDetails"></div>
+  <p><a href="Index.html">Back to Home</a></p>
+
+  <script>
+    function fetchSessionInfo() {
+      fetch('SessionInfoServlet')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('sessionDetails').innerHTML = data;
+        })
+        .catch(error => console.error('Error:', error));
+    }
+  </script>
+</body>
+</html>
